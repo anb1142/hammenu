@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #d2dce1;
+}
+
+nav {
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 6.7vh;
+	background: #121212;
+	align-items: center;
+	justify-content: space-between;
+	font-family: "Source Sans Pro";
+	font-size: 1.8vh;
+	padding: 0 5vh;
+	z-index: 10;
+}
+
+nav > input,
+nav > div {
+	display: none;
+}
+
+nav > a > img {
+	width: 5vh;
+	height: 5vh;
+	object-fit: contain;
+	background: #fff;
+	border-radius: 50%;
+}
+
+nav > ul {
+	display: flex;
+	align-items: center;
+}
+
+nav > ul > a {
+	color: #fff;
+	text-decoration: none;
+	opacity: 0.7;
+	margin-left: 3vh;
+}
+
+nav > ul > a:first-of-type {
+	margin: 0;
+}
+
+nav > ul > a:hover {
+	opacity: 1;
+	color: hsl(50, 60%, 55%);
+}
+
+nav > ul > a.active {
+	opacity: 1;
+	background: hsl(55, 100%, 80%);
+	color: #000;
+	font-weight: 600;
+	padding: 1vh 2vh;
+	border-radius: 1vh;
+	border-bottom: 0.4vh solid hsl(50, 60%, 55%);
+}
+
+@media screen and (max-width: 768px) {
+	nav {
+		padding: 0 5vw;
+		height: 10vw;
+	}
+
+	nav > a > img {
+		height: 8vw;
+		width: 8vw;
+	}
+
+	nav > input {
+		display: initial;
+		position: absolute;
+		right: 5vw;
+		height: 10vw;
+		width: 10vw;
+		opacity: 0;
+		z-index: 1;
+	}
+
+	nav > div {
+		width: 12vw;
+		height: 6vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	nav > div > span {
+		height: 11%;
+		width: 50%;
+		background: #fff;
+		transition: all 0.3s;
+	}
+
+	nav > input:checked ~ div > span:nth-child(1) {
+		transform-origin: 100% 0%;
+		transform: rotate(-45deg);
+		margin-left: -1vw;
+	}
+	nav > input:checked ~ div > span:nth-child(2) {
+		opacity: 0;
+	}
+	nav > input:checked ~ div > span:nth-child(3) {
+		transform-origin: 100% 100%;
+		transform: rotate(45deg);
+		margin-left: -1vw;
+	}
+
+	nav > ul {
+		position: fixed;
+		top: 10vw;
+		right: 0;
+		background: #121212;
+		flex-direction: column;
+		width: 25vh;
+		height: 100%;
+		transform: translateX(25vh);
+		transition: transform 0.3s;
+	}
+
+	nav > input:checked ~ ul {
+		transform: none;
+	}
+
+	nav > ul > a {
+		background: #fff;
+		opacity: 1;
+		color: #000;
+		margin: 1.5vh auto !important;
+		padding: 2vh !important;
+		border-radius: 2vw !important;
+		width: 20vh;
+		text-align: center;
+		transition: transform 0.3s;
+	}
+
+	nav > ul > a:hover {
+		color: intial;
+	}
+
+	nav > ul > a:active {
+		transform: scale(0.95);
+	}
+}
